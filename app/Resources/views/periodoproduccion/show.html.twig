@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PeriodoProduccion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ periodoProduccion.id }}</td>
+            </tr>
+            <tr>
+                <th>Inicioperiodo</th>
+                <td>{% if periodoProduccion.inicioPeriodo %}{{ periodoProduccion.inicioPeriodo|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Finperiodo</th>
+                <td>{% if periodoProduccion.finPeriodo %}{{ periodoProduccion.finPeriodo|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_periodo_produccion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_periodo_produccion_edit', { 'id': periodoProduccion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

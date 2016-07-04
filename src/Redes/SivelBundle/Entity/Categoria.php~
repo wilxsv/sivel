@@ -1,0 +1,49 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categoria
+ *
+ * @ORM\Table(name="categoria", uniqueConstraints={@ORM\UniqueConstraint(name="nombre_categoria", columns={"nombre_categoria"})}, indexes={@ORM\Index(name="id_categoria", columns={"id_categoria"})})
+ * @ORM\Entity
+ */
+class Categoria
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_categoria", type="text", length=65535, nullable=false)
+     */
+    private $nombreCategoria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion_categoria", type="text", length=65535, nullable=true)
+     */
+    private $descripcionCategoria;
+
+    /**
+     * @var \Categoria
+     *
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_categoria", referencedColumnName="id")
+     * })
+     */
+    private $idCategoria;
+
+
+}

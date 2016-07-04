@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FosUser list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Usernamecanonical</th>
+                <th>Email</th>
+                <th>Emailcanonical</th>
+                <th>Enabled</th>
+                <th>Salt</th>
+                <th>Password</th>
+                <th>Lastlogin</th>
+                <th>Locked</th>
+                <th>Expired</th>
+                <th>Expiresat</th>
+                <th>Confirmationtoken</th>
+                <th>Passwordrequestedat</th>
+                <th>Roles</th>
+                <th>Credentialsexpired</th>
+                <th>Credentialsexpireat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fosUser in fosUsers %}
+            <tr>
+                <td><a href="{{ path('admin_usuario_show', { 'id': fosUser.id }) }}">{{ fosUser.id }}</a></td>
+                <td>{{ fosUser.username }}</td>
+                <td>{{ fosUser.usernameCanonical }}</td>
+                <td>{{ fosUser.email }}</td>
+                <td>{{ fosUser.emailCanonical }}</td>
+                <td>{% if fosUser.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ fosUser.salt }}</td>
+                <td>{{ fosUser.password }}</td>
+                <td>{% if fosUser.lastLogin %}{{ fosUser.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if fosUser.locked %}Yes{% else %}No{% endif %}</td>
+                <td>{% if fosUser.expired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if fosUser.expiresAt %}{{ fosUser.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ fosUser.confirmationToken }}</td>
+                <td>{% if fosUser.passwordRequestedAt %}{{ fosUser.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if fosUser.roles %}{{ fosUser.roles|join(', ') }}{% endif %}</td>
+                <td>{% if fosUser.credentialsExpired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if fosUser.credentialsExpireAt %}{{ fosUser.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_usuario_show', { 'id': fosUser.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_usuario_edit', { 'id': fosUser.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_usuario_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

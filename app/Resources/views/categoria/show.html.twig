@@ -1,0 +1,19 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Categorias{% endblock %}
+{% block body %}
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ categorium.nombreCategoria }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ categorium.descripcionCategoria }}</td>
+            </tr>
+        </tbody>
+    </table><br/>
+    <a href="{{ path('admin_categoria_index') }}" class="btn btn-default">Regresar a la lista</a> <br/>
+    <a href="{{ path('admin_categoria_edit', { 'id': categorium.id }) }}" class="btn btn-warning">Editar</a> {{ form_start(delete_form) }}<input type="submit" value="Borrar" class="btn btn-danger">{{ form_end(delete_form) }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ArchivosPersona list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombrearchivo</th>
+                <th>Patharchivo</th>
+                <th>Registroarchivo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for archivosPersona in archivosPersonas %}
+            <tr>
+                <td><a href="{{ path('admin_archivos_show', { 'id': archivosPersona.id }) }}">{{ archivosPersona.id }}</a></td>
+                <td>{{ archivosPersona.nombreArchivo }}</td>
+                <td>{{ archivosPersona.pathArchivo }}</td>
+                <td>{% if archivosPersona.registroArchivo %}{{ archivosPersona.registroArchivo|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_archivos_show', { 'id': archivosPersona.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_archivos_edit', { 'id': archivosPersona.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_archivos_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

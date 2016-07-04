@@ -1,0 +1,39 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Listado de productos{% endblock %}
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Dimenciones</th>
+                <th>Precio</th>
+                <th>Produccion</th>
+                <th>Visto</th>
+                <th>Img0producto</th>
+                <th>Registrado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.nombreProducto }}</td>
+                <td>{{ producto.descripcionProducto }}</td>
+                <td>{{ producto.dimencionProducto }}</td>
+                <td>{{ producto.precioProducto }}</td>
+                <td>{{ producto.produccionProducto }}</td>
+                <td>{{ producto.vistoProducto }}</td>
+                <td>{{ producto.img0Producto }}</td>
+                <td>{% if producto.registro %}{{ producto.registro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('admin_productos_show', { 'id': producto.id }) }}"  class="btn btn-default">Ver</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_productos_new') }}"  class="btn btn-success">Crear nuevo</a>
+{% endblock %}

@@ -1,0 +1,111 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Servicio
+ *
+ * @ORM\Table(name="servicio", indexes={@ORM\Index(name="id_categoria", columns={"id_categoria"}), @ORM\Index(name="id_financiamiento", columns={"id_financiamiento"}), @ORM\Index(name="id_persona", columns={"id_persona"})})
+ * @ORM\Entity
+ */
+class Servicio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_servicio", type="text", length=65535, nullable=false)
+     */
+    private $nombreServicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion_servicio", type="text", length=65535, nullable=false)
+     */
+    private $descripcionServicio;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="precio_servicio", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $precioServicio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="visto_servicio", type="bigint", nullable=false)
+     */
+    private $vistoServicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img0_servicio", type="text", length=65535, nullable=true)
+     */
+    private $img0Servicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img1_servicio", type="text", length=65535, nullable=true)
+     */
+    private $img1Servicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img2_servicio", type="text", length=65535, nullable=true)
+     */
+    private $img2Servicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registro", type="datetime", nullable=false)
+     */
+    private $registro;
+
+    /**
+     * @var \Categoria
+     *
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_categoria", referencedColumnName="id")
+     * })
+     */
+    private $idCategoria;
+
+    /**
+     * @var \Financiamiento
+     *
+     * @ORM\ManyToOne(targetEntity="Financiamiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_financiamiento", referencedColumnName="id")
+     * })
+     */
+    private $idFinanciamiento;
+
+    /**
+     * @var \Persona
+     *
+     * @ORM\ManyToOne(targetEntity="Persona")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_persona", referencedColumnName="id")
+     * })
+     */
+    private $idPersona;
+
+
+}

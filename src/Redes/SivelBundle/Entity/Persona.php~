@@ -1,0 +1,140 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Persona
+ *
+ * @ORM\Table(name="persona", uniqueConstraints={@ORM\UniqueConstraint(name="dui_persona", columns={"dui_persona"}), @ORM\UniqueConstraint(name="nit_persona", columns={"nit_persona"})}, indexes={@ORM\Index(name="id_localidad", columns={"id_localidad"})})
+ * @ORM\Entity
+ */
+class Persona
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_persona", type="text", length=65535, nullable=false)
+     */
+    private $nombrePersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dui_persona", type="text", length=65535, nullable=false)
+     */
+    private $duiPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nit_persona", type="text", length=65535, nullable=false)
+     */
+    private $nitPersona;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="nacimiento_persona", type="date", nullable=false)
+     */
+    private $nacimientoPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="movil_persona", type="string", length=15, nullable=false)
+     */
+    private $movilPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono_persona", type="string", length=15, nullable=false)
+     */
+    private $telefonoPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correo_persona", type="text", length=65535, nullable=false)
+     */
+    private $correoPersona;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="sexo_persona", type="boolean", nullable=false)
+     */
+    private $sexoPersona;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ingreso_persona", type="date", nullable=false)
+     */
+    private $ingresoPersona;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="latitud_persona", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $latitudPersona;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="longitud_persona", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $longitudPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="direccion_persona", type="text", nullable=false)
+     */
+    private $direccionPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagen_persona", type="text", nullable=false)
+     */
+    private $imagenPersona;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion_persona", type="text", nullable=false)
+     */
+    private $observacionPersona;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registro", type="datetime", nullable=false)
+     */
+    private $registro;
+
+    /**
+     * @var \Localidad
+     *
+     * @ORM\ManyToOne(targetEntity="Localidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_localidad", referencedColumnName="id")
+     * })
+     */
+    private $idLocalidad;
+
+
+}

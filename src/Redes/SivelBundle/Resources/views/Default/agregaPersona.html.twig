@@ -1,0 +1,8 @@
+{% if form %}
+{{ form_start(form) }}
+                            {{ form_widget(form) }}<br/>
+                            <button id="persona" class="btn btn-success" type="submit" onclick="agregarpersona()">Registrar persona</button>
+                        {{ form_end(form) }}
+{% else %}
+    <div class="alert alert-success" role="alert"><strong>Listo!</strong> persona agregada, puede pasar al siguiente paso</div>
+{% endif %}

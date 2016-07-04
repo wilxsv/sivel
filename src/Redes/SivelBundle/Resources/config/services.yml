@@ -1,0 +1,4 @@
+services:
+#    redes_sivel.example:
+#        class: Redes\SivelBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

@@ -1,0 +1,24 @@
+admin_localidad_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:Localidad:index" }
+    methods:  GET
+
+admin_localidad_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:Localidad:show" }
+    methods:  GET
+
+admin_localidad_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:Localidad:new" }
+    methods:  [GET, POST]
+
+admin_localidad_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:Localidad:edit" }
+    methods:  [GET, POST]
+
+admin_localidad_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:Localidad:delete" }
+    methods:  DELETE

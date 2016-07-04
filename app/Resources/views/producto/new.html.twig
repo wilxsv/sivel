@@ -1,0 +1,11 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Crear Producto{% endblock %}
+{% block body %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}<br/>
+        <input type="submit" value="Crear" class="btn btn-success"/> <a href="{{ path('admin_productos_index') }}" class="btn btn-default">Regresar a la lista</a>
+    {{ form_end(form) }}
+    <br/>
+    
+{% endblock %}

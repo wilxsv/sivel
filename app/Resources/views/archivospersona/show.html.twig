@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ArchivosPersona</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ archivosPersona.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombrearchivo</th>
+                <td>{{ archivosPersona.nombreArchivo }}</td>
+            </tr>
+            <tr>
+                <th>Patharchivo</th>
+                <td>{{ archivosPersona.pathArchivo }}</td>
+            </tr>
+            <tr>
+                <th>Registroarchivo</th>
+                <td>{% if archivosPersona.registroArchivo %}{{ archivosPersona.registroArchivo|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_archivos_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_archivos_edit', { 'id': archivosPersona.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

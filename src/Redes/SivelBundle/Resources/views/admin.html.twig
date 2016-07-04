@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>:: {% block title %}{% endblock %} | Sistema de Seguimiento a Iniciativas y Vinculaciones en la Economía Local ::</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('assets/admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{ asset('assets/admin/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{ asset('assets/admin/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href="{{ asset('assets/admin/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('assets/admin/build/css/custom.min.css') }}" rel="stylesheet">
+    {% block js_head %}{% endblock %}
+  </head>
+
+  <body class="nav-md ">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="{{ path('redes_sivel_resumen') }}" class="site_title"><i class="fa fa-map-signs"></i> <span>SIVEL - Redes</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Opciones</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{{ path('admin_personas_index') }}" ><i class="fa fa-universal-access"></i> Personas </a></li>
+                  <li><a href="{{ path('admin_productos_index') }}" ><i class="fa fa-cubes"></i> Productos </a></li>
+                  <li><a href="{{ path('admin_servicios_index') }}" ><i class="fa fa-cutlery"></i> Servicios </a></li>
+                  <li><a href="{{ path('admin_comentarios_index') }}" ><i class="fa fa-commenting-o"></i> Comentarios </a></li>
+                  <li><a href="{{ path('redes_sivel_resumen') }}" ><i class="fa fa-bar-chart-o"></i> Resumen </a></li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Catalogos</h3>
+                <ul class="nav side-menu">
+                  <li><a  ><i class="fa fa-database"></i> Generales <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" >
+                      <li><a href="{{ path('admin_categoria_index') }}">Categorias</a></li>
+                      <li><a href="{{ path('admin_financiamiento_index') }}">Financiamiento</a></li>
+                      <li><a href="{{ path('admin_localidad_index') }}">Localidades</a></li>
+                      <li><a href="{{ path('admin_unidad_index') }}">Unidad de medida</a></li>
+                    </ul>
+                  </li>
+                  <li><a  ><i class="fa fa-database"></i> Accessos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" >
+                      <li><a href="{{ path('redes_sivel_homepage') }}">Grupos</a></li>
+                      <li><a href="{{ path('redes_sivel_homepage') }}">Permisos</a></li>
+                      <li><a href="{{ path('redes_sivel_homepage') }}">Contraseña</a></li>
+                      <li><a href="{{ path('redes_sivel_homepage') }}">Usuarios</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="{{ path('redes_sivel_resumen') }}" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">Opciones generales
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="{{ path('redes_sivel_homepage') }}" target="_blank"> Ver sitio publico</a></li>
+                    <li>
+                      <a "{{ path('redes_sivel_resumen') }}">
+                        <span>Contraseña</span>
+                      </a>
+                    </li>
+                    <li><a href="git">Ayuda</a></li>
+                    <li><a href=""{{ path('redes_sivel_resumen') }}""><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3> {% block titulo %}{% endblock %}<small> {% block titulo_detalle %}{% endblock %} <strong>{% block titulo_detalle_dos %}{% endblock %}</strong></small></h3>
+              </div>
+            </div>
+            <div class="row">
+            {% if app.request.attributes.get('_route') == 'redes_sivel_resumen' or app.request.attributes.get('_route') == 'admin_personas_new' %}
+              {% block bodyclean %}{% endblock %}
+            {% else %}
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2> {% block tituloTabla %}{% endblock %}<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">herramientas</a>
+                          </li>
+                          <li><a href="#">configuracion</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    {% block body %}{% endblock %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            <b>Sistema Nacional de Consulta Publica de Abastecimiento de Medicamentos | Fundación Salvadoreña para la Reconstrucción y el Desarrollo | REDES</b>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('assets/admin/vendors/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('assets/admin/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- jQuery custom content scroller -->
+    <script src="{{ asset('assets/admin/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{ asset('assets/admin/build/js/custom.js') }}"></script>
+    {% block js_footer %}{% endblock %}
+  </body>
+</html>

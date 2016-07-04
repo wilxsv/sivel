@@ -1,0 +1,135 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Producto
+ *
+ * @ORM\Table(name="producto", indexes={@ORM\Index(name="id_categoria", columns={"id_categoria"}), @ORM\Index(name="id_financiamiento", columns={"id_financiamiento"}), @ORM\Index(name="id_unidad", columns={"id_unidad"}), @ORM\Index(name="id_persona", columns={"id_persona"})})
+ * @ORM\Entity
+ */
+class Producto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_producto", type="text", length=65535, nullable=false)
+     */
+    private $nombreProducto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion_producto", type="text", length=65535, nullable=false)
+     */
+    private $descripcionProducto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dimencion_producto", type="text", length=65535, nullable=false)
+     */
+    private $dimencionProducto;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="precio_producto", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $precioProducto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="produccion_producto", type="bigint", nullable=false)
+     */
+    private $produccionProducto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="visto_producto", type="bigint", nullable=false)
+     */
+    private $vistoProducto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img0_producto", type="text", length=65535, nullable=true)
+     */
+    private $img0Producto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img1_producto", type="text", length=65535, nullable=true)
+     */
+    private $img1Producto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img2_producto", type="text", length=65535, nullable=true)
+     */
+    private $img2Producto;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registro", type="datetime", nullable=false)
+     */
+    private $registro;
+
+    /**
+     * @var \Categoria
+     *
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_categoria", referencedColumnName="id")
+     * })
+     */
+    private $idCategoria;
+
+    /**
+     * @var \Financiamiento
+     *
+     * @ORM\ManyToOne(targetEntity="Financiamiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_financiamiento", referencedColumnName="id")
+     * })
+     */
+    private $idFinanciamiento;
+
+    /**
+     * @var \UnidadMedida
+     *
+     * @ORM\ManyToOne(targetEntity="UnidadMedida")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_unidad", referencedColumnName="id")
+     * })
+     */
+    private $idUnidad;
+
+    /**
+     * @var \Persona
+     *
+     * @ORM\ManyToOne(targetEntity="Persona")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_persona", referencedColumnName="id")
+     * })
+     */
+    private $idPersona;
+
+
+}

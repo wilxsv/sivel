@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PeriodoProduccion list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Inicioperiodo</th>
+                <th>Finperiodo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for periodoProduccion in periodoProduccions %}
+            <tr>
+                <td><a href="{{ path('admin_periodo_produccion_show', { 'id': periodoProduccion.id }) }}">{{ periodoProduccion.id }}</a></td>
+                <td>{% if periodoProduccion.inicioPeriodo %}{{ periodoProduccion.inicioPeriodo|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if periodoProduccion.finPeriodo %}{{ periodoProduccion.finPeriodo|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_periodo_produccion_show', { 'id': periodoProduccion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_periodo_produccion_edit', { 'id': periodoProduccion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_periodo_produccion_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

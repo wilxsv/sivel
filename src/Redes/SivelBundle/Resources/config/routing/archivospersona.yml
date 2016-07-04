@@ -1,0 +1,24 @@
+admin_archivos_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:ArchivosPersona:index" }
+    methods:  GET
+
+admin_archivos_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:ArchivosPersona:show" }
+    methods:  GET
+
+admin_archivos_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:ArchivosPersona:new" }
+    methods:  [GET, POST]
+
+admin_archivos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:ArchivosPersona:edit" }
+    methods:  [GET, POST]
+
+admin_archivos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:ArchivosPersona:delete" }
+    methods:  DELETE

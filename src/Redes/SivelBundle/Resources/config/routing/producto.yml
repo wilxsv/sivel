@@ -1,0 +1,24 @@
+admin_productos_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:Producto:index" }
+    methods:  GET
+
+admin_productos_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:Producto:show" }
+    methods:  GET
+
+admin_productos_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:Producto:new" }
+    methods:  [GET, POST]
+
+admin_productos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:Producto:edit" }
+    methods:  [GET, POST]
+
+admin_productos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:Producto:delete" }
+    methods:  DELETE

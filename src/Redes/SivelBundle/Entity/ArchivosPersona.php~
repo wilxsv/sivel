@@ -1,0 +1,56 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ArchivosPersona
+ *
+ * @ORM\Table(name="archivos_persona", uniqueConstraints={@ORM\UniqueConstraint(name="path_archivo", columns={"path_archivo"})}, indexes={@ORM\Index(name="id_persona", columns={"id_persona"})})
+ * @ORM\Entity
+ */
+class ArchivosPersona
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_archivo", type="text", length=65535, nullable=false)
+     */
+    private $nombreArchivo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="path_archivo", type="text", length=65535, nullable=false)
+     */
+    private $pathArchivo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registro_archivo", type="datetime", nullable=false)
+     */
+    private $registroArchivo;
+
+    /**
+     * @var \Persona
+     *
+     * @ORM\ManyToOne(targetEntity="Persona")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_persona", referencedColumnName="id")
+     * })
+     */
+    private $idPersona;
+
+
+}

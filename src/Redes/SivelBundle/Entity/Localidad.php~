@@ -1,0 +1,56 @@
+<?php
+
+namespace Redes\SivelBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Localidad
+ *
+ * @ORM\Table(name="localidad", uniqueConstraints={@ORM\UniqueConstraint(name="nombre_localidad", columns={"nombre_localidad"})}, indexes={@ORM\Index(name="id_localidad", columns={"id_localidad"})})
+ * @ORM\Entity
+ */
+class Localidad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_localidad", type="text", length=65535, nullable=false)
+     */
+    private $nombreLocalidad;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="latitud_localidad", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $latitudLocalidad;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="longitud_localidad", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $longitudLocalidad;
+
+    /**
+     * @var \Localidad
+     *
+     * @ORM\ManyToOne(targetEntity="Localidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_localidad", referencedColumnName="id")
+     * })
+     */
+    private $idLocalidad;
+
+
+}

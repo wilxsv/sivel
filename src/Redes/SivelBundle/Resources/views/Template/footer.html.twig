@@ -1,0 +1,92 @@
+
+<div id="contact" class="spacer">
+<!--Contact Starts-->
+ <div id="Map" class="olMap" style="width: 100%; height: 600px; margin: 0;"> </div>
+
+</div>
+<!--Contact Ends-->
+
+<!-- Footer Starts -->
+<div class="footer text-center spacer">
+<p class="wowload flipInX">
+  <a href="http://www.facebook.com/fundaredes"><i class="fa fa-facebook fa-2x"></i></a> 
+  <a href="http://www.youtube.com/user/RedesFundacion?sub_confirmation=1"><i class="fa fa-youtube fa-2x"></i></a> 
+  <a href="http://twitter.com/fundredes"><i class="fa fa-twitter fa-2x"></i></a> 
+  <a href="http://redes.org.sv/rss"><i class="fa fa-rss fa-2x"></i></a> 
+</p>
+<p><b>Fundación Salvadoreña para la Reconstrucción y el Desarrollo – REDES</b><br/>
+Los contenidos de este sitio web están bajo una<b> <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es_CO"> Licencia Creative Commons BY-NC-ND </a></b></p>
+</div>
+<!-- # Footer Ends -->
+<a href="#home" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title">Title</h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->    
+</div>
+
+<script src="{{ asset('assets/js/osm/OpenLayers-2.13.1/OpenLayers.js') }}"></script>
+<script>
+    var lat            = 13.697911;
+    var lon            = -89.218846;
+    var zoom           = 8;
+    var icoPng       = '{{ asset('images/icoMap.png') }}';
+    
+    map = new OpenLayers.Map("Map");
+    map.addLayer(new OpenLayers.Layer.OSM());
+    
+    epsg4326 =  new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
+    projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
+   
+    var lonLat = new OpenLayers.LonLat( lon ,lat ).transform(epsg4326, projectTo);
+    map.setCenter (lonLat, zoom);
+
+    var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+    
+    // Define markers as "features" of the vector layer:
+    
+    {% for d in all %}
+      var feature = new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point( {{ d.longitudPersona }}, {{ d.latitudPersona }} ).transform(epsg4326, projectTo),
+            {description:'<a href="#" ><b>{{ d.nombrePersona }} </b></a><br/>'} ,
+            {externalGraphic: icoPng, graphicHeight: 30, graphicWidth: 28, graphicXOffset:-12, graphicYOffset:-25  }
+        );
+        vectorLayer.addFeatures(feature);
+    {% endfor %}
+
+    map.addLayer(vectorLayer); 
+    
+    //Add a selector control to the vectorLayer with popup functions
+    var controls = {
+      selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
+    };
+
+    function createPopup(feature) {
+      feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+          feature.geometry.getBounds().getCenterLonLat(),
+          null,
+          '<div class="markerContent">'+feature.attributes.description+'</div>',
+          null,
+          true,
+          function() { controls['selector'].unselectAll(); }
+      );
+      //feature.popup.closeOnMove = true;
+      map.addPopup(feature.popup);
+    }
+
+    function destroyPopup(feature) {
+      feature.popup.destroy();
+      feature.popup = null;
+    }
+    
+    map.addControl(controls['selector']);
+    controls['selector'].activate();
+      
+  </script>

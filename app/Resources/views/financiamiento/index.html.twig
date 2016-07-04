@@ -1,0 +1,25 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Financiamiento{% endblock %}
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for financiamiento in financiamientos %}
+            <tr>
+                <td>{{ financiamiento.nombreFinanciamiento }}</td>
+                <td>
+                    <a href="{{ path('admin_financiamiento_show', { 'id': financiamiento.id }) }}"  class="btn btn-default">Ver</a>
+                    <a href="{{ path('admin_financiamiento_edit', { 'id': financiamiento.id }) }}"  class="btn btn-warning">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_financiamiento_new') }}" class="btn btn-success">Crear nuevo</a>
+{% endblock %}

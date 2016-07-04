@@ -1,0 +1,24 @@
+admin_usuario_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:FosUser:index" }
+    methods:  GET
+
+admin_usuario_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:FosUser:show" }
+    methods:  GET
+
+admin_usuario_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:FosUser:new" }
+    methods:  [GET, POST]
+
+admin_usuario_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:FosUser:edit" }
+    methods:  [GET, POST]
+
+admin_usuario_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:FosUser:delete" }
+    methods:  DELETE

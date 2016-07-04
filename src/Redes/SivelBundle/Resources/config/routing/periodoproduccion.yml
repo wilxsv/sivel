@@ -1,0 +1,24 @@
+admin_periodo_produccion_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:PeriodoProduccion:index" }
+    methods:  GET
+
+admin_periodo_produccion_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:PeriodoProduccion:show" }
+    methods:  GET
+
+admin_periodo_produccion_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:PeriodoProduccion:new" }
+    methods:  [GET, POST]
+
+admin_periodo_produccion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:PeriodoProduccion:edit" }
+    methods:  [GET, POST]
+
+admin_periodo_produccion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:PeriodoProduccion:delete" }
+    methods:  DELETE

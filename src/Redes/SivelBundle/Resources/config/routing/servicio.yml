@@ -1,0 +1,24 @@
+admin_servicios_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:Servicio:index" }
+    methods:  GET
+
+admin_servicios_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:Servicio:show" }
+    methods:  GET
+
+admin_servicios_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:Servicio:new" }
+    methods:  [GET, POST]
+
+admin_servicios_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:Servicio:edit" }
+    methods:  [GET, POST]
+
+admin_servicios_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:Servicio:delete" }
+    methods:  DELETE

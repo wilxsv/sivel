@@ -1,0 +1,26 @@
+{% if form %}
+{{ form_start(form) }}
+                            {{ form_widget(form) }}<br/>
+                            <button id="persona" class="btn btn-success" type="submit" onclick="agregarpersona()">Registrar persona</button>
+                        {{ form_end(form) }}
+{% else %}
+    <table>
+        <tbody>
+            <tr><th>Nombre</th><td>{{ persona.nombrePersona }}</td></tr>
+            <tr><th>Dui</th><td>{{ persona.duiPersona }}</td></tr>
+            <tr><th>Nit</th><td>{{ persona.nitPersona }}</td></tr>
+            <tr><th>Nacimiento</th><td>{% if persona.nacimientoPersona %}{{ persona.nacimientoPersona|date('Y-m-d') }}{% endif %}</td></tr>
+            <tr><th>Movil</th><td>{{ persona.movilPersona }}</td></tr>
+            <tr><th>Telefono</th><td>{{ persona.telefonoPersona }}</td></tr>
+            <tr><th>Correo</th><td>{{ persona.correoPersona }}</td></tr>
+            <tr><th>Sexo</th><td>{% if persona.sexoPersona %}Yes{% else %}No{% endif %}</td></tr>
+            <tr><th>Ingreso a la red en </th><td>{% if persona.ingresoPersona %}{{ persona.ingresoPersona|date('Y-m-d') }}{% endif %}</td></tr>
+            <tr><th>Latitud</th><td>{{ persona.latitudPersona }}</td></tr>
+            <tr><th>Longitud</th><td>{{ persona.longitudPersona }}</td></tr>
+            <tr><th>Direccion</th><td>{{ persona.direccionPersona }}</td></tr>
+            <tr><th>Observacionpersona</th><td>{{ persona.observacionPersona }}</td></tr>
+        </tbody>
+    </table><br/>
+    <a href="{{ path('admin_personas_index') }}" class="btn btn-default">Regresar a la lista</a> <br/>
+    <a href="{{ path('admin_personas_edit', { 'id': persona.id }) }}" class="btn btn-warning">Editar</a> {{ form_start(delete_form) }}<input type="submit" value="Borrar" class="btn btn-danger">{{ form_end(delete_form) }}
+{% endif %}

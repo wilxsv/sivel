@@ -1,0 +1,24 @@
+admin_financiamiento_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:Financiamiento:index" }
+    methods:  GET
+
+admin_financiamiento_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:Financiamiento:show" }
+    methods:  GET
+
+admin_financiamiento_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:Financiamiento:new" }
+    methods:  [GET, POST]
+
+admin_financiamiento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:Financiamiento:edit" }
+    methods:  [GET, POST]
+
+admin_financiamiento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:Financiamiento:delete" }
+    methods:  DELETE

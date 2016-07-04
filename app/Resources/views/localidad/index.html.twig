@@ -1,0 +1,31 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Lista de unidades de medidas{% endblock %}
+{% block titulo_detalle %}Pais/Departamento/Municipio/Canton/Caserio{% endblock %}
+{% block titulo_detalle_dos %}Ejemplo{% endblock %}
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del lugar</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for localidad in localidads %}
+            <tr>
+                <td>{{ localidad.nombreLocalidad }}</td>
+                <td>{{ localidad.latitudLocalidad }}</td>
+                <td>{{ localidad.longitudLocalidad }}</td>
+                <td>
+                    <a href="{{ path('admin_localidad_show', { 'id': localidad.id }) }}"  class="btn btn-default">Ver</a>
+                    <a href="{{ path('admin_localidad_edit', { 'id': localidad.id }) }}"  class="btn btn-warning">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_localidad_new') }}" class="btn btn-success">Crear nueva</a>
+{% endblock %}

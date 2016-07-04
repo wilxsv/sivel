@@ -1,0 +1,26 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Lista de unidades de medidas{% endblock %}
+{% block body %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unidadMedida in unidadMedidas %}
+            <tr>
+                <td>{{ unidadMedida.nombreUnidad }}</td>
+                <td>
+                    <a href="{{ path('admin_unidad_show', { 'id': unidadMedida.id }) }}"  class="btn btn-default">Ver</a>
+                    <a href="{{ path('admin_unidad_edit', { 'id': unidadMedida.id }) }}"  class="btn btn-warning">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_unidad_new') }}" class="btn btn-success">Crear nuevo</a>
+{% endblock %}

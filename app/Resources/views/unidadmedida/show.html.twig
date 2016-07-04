@@ -1,0 +1,14 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Unidade de medida{% endblock %}
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ unidadMedida.nombreUnidad }}</td>
+            </tr>
+        </tbody>
+    </table><br/>
+    <a href="{{ path('admin_unidad_index') }}" class="btn btn-default">Regresar a la lista</a> <br/>
+    <a href="{{ path('admin_unidad_edit', { 'id': unidadMedida.id }) }}" class="btn btn-warning">Editar</a> {{ form_start(delete_form) }}<input type="submit" value="Borrar" class="btn btn-danger">{{ form_end(delete_form) }}
+{% endblock %}

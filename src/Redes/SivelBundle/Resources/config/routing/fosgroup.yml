@@ -1,0 +1,24 @@
+admin_grupo_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:FosGroup:index" }
+    methods:  GET
+
+admin_grupo_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:FosGroup:show" }
+    methods:  GET
+
+admin_grupo_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:FosGroup:new" }
+    methods:  [GET, POST]
+
+admin_grupo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:FosGroup:edit" }
+    methods:  [GET, POST]
+
+admin_grupo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:FosGroup:delete" }
+    methods:  DELETE

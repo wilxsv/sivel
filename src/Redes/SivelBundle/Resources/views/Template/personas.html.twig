@@ -1,0 +1,40 @@
+<!-- works -->
+<div id="works"  class=" clearfix grid"> 
+    
+    {% for d in producto6 %}
+        <figure class="effect-oscar  wowload fadeInUp">
+            {% if d.img0Producto |length > 3 %}
+                {%  set img = app.request.schemeAndHttpHost ~ '/' ~ d.img0Producto %}
+            {% else %}
+                {%  set img = asset('images/box_icon.png') %}
+            {% endif %}
+            <img src="{{ img }}" />
+            <figcaption>
+               <h2>{{ d.nombreProducto }}</h2>
+               <p>{{ d.descripcionProducto }}<br>
+                    <a href="{{ img }}" data-gallery>Expandir imagen</a><br>
+                    <a href="" >Ver contacto</a>
+               </p>            
+            </figcaption>
+        </figure>
+    {% endfor %}
+    {% for d in servicio6 %}
+        <figure class="effect-oscar  wowload fadeInUp">
+            {% if d.img0Servicio |length > 3 %}
+                {%  set img = app.request.schemeAndHttpHost ~ '/' ~ d.img0Servicio %}
+            {% else %}
+                {%  set img = asset('images/servicios.jpg') %}
+            {% endif %}
+            <img src="{{ img }}" />
+            <figcaption>
+               <h2>{{ d.nombreServicio }}</h2>
+               <p>{{ d.descripcionServicio }}<br>
+                    <a href="{{ img }}" data-gallery>Expandir imagen</a><br>
+                    <a href="" >Ver contacto</a>
+               </p>            
+            </figcaption>
+        </figure>
+    {% endfor %}
+
+</div>
+<!-- works -->

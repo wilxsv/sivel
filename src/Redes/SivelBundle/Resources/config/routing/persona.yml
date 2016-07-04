@@ -1,0 +1,32 @@
+admin_personas_index:
+    path:     /
+    defaults: { _controller: "RedesSivelBundle:Persona:index" }
+    methods:  GET
+
+admin_personas_show:
+    path:     /{id}/show
+    defaults: { _controller: "RedesSivelBundle:Persona:show" }
+    methods:  GET
+
+admin_personas_new:
+    path:     /new
+    defaults: { _controller: "RedesSivelBundle:Persona:new" }
+    methods:  [GET, POST]
+
+admin_personas_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RedesSivelBundle:Persona:edit" }
+    methods:  [GET, POST]
+
+admin_personas_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RedesSivelBundle:Persona:delete" }
+    methods:  DELETE
+
+admin_personas_all:
+    path:     /admin_personas_all
+    defaults: { _controller: "RedesSivelBundle:Default:agrega" }
+    methods:  [GET|HEAD|POST]
+    requirements:
+        _method:  POST|GET
+

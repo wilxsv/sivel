@@ -1,0 +1,38 @@
+{% extends 'RedesSivelBundle::admin.html.twig' %}
+{% block titulo %}Producto {{ producto.nombreProducto }}{% endblock %}
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ producto.nombreProducto }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ producto.descripcionProducto }}</td>
+            </tr>
+            <tr>
+                <th>Dimencion</th>
+                <td>{{ producto.dimencionProducto }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ producto.precioProducto }}</td>
+            </tr>
+            <tr>
+                <th>Produccion</th>
+                <td>{{ producto.produccionProducto }}</td>
+            </tr>
+            <tr>
+                <th>Visto</th>
+                <td>{{ producto.vistoProducto }}</td>
+            </tr>
+            <tr>
+                <th>Registrado</th>
+                <td>{% if producto.registro %}{{ producto.registro|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table><br/>
+    <a href="{{ path('admin_productos_index') }}" class="btn btn-default">Regresar a la lista</a> <br/>
+    <a href="{{ path('admin_productos_edit', { 'id': producto.id }) }}" class="btn btn-warning">Editar</a> {{ form_start(delete_form) }}<input type="submit" value="Borrar" class="btn btn-danger">{{ form_end(delete_form) }}
+{% endblock %}

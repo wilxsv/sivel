@@ -1,0 +1,37 @@
+redes_sivel_admin_grupo:
+    resource: "@RedesSivelBundle/Resources/config/routing/fosgroup.yml"
+    prefix:   /admin/cat_grupo
+redes_sivel_admin_categoria:
+    resource: "@RedesSivelBundle/Resources/config/routing/categoria.yml"
+    prefix:   /admin/cat_categoria
+redes_sivel_admin_financiamiento:
+    resource: "@RedesSivelBundle/Resources/config/routing/financiamiento.yml"
+    prefix:   /admin/cat_financiamiento
+redes_sivel_admin_localidad:
+    resource: "@RedesSivelBundle/Resources/config/routing/localidad.yml"
+    prefix:   /admin/cat_localidad
+redes_sivel_admin_unidadmedida:
+    resource: "@RedesSivelBundle/Resources/config/routing/unidadmedida.yml"
+    prefix:   /admin/cat_unidad
+redes_sivel_admin_comentarios:
+    resource: "@RedesSivelBundle/Resources/config/routing/comentario.yml"
+    prefix:   /admin/comentarios
+redes_sivel_admin_servicios:
+    resource: "@RedesSivelBundle/Resources/config/routing/servicio.yml"
+    prefix:   /admin/servicios
+redes_sivel_admin_productos:
+    resource: "@RedesSivelBundle/Resources/config/routing/producto.yml"
+    prefix:   /admin/productos
+redes_sivel_admin_personas:
+    resource: "@RedesSivelBundle/Resources/config/routing/persona.yml"
+    prefix:   /admin/personas
+
+
+redes_sivel_homepage:
+    path:     /
+    defaults: { _controller: RedesSivelBundle:Default:index }
+
+redes_sivel_resumen:
+    path:     /admin
+    defaults: { _controller: RedesSivelBundle:Default:resumen }
+    methods:  [GET, POST]
